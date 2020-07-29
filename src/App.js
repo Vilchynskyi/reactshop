@@ -1,4 +1,10 @@
 import React from "react"
+import './reset.css'
+import './base.css'
+import './cart.css'
+import './header.css'
+import './menu.css'
+
 
 const App = () => {
 	return (
@@ -8,7 +14,7 @@ const App = () => {
 					<div className="row">
 						<div className="col-lg-3">
 							<div className="logo">
-								<img src="img/logo.png" alt=""/>
+								<img src="logo.png" alt=""/>
 							</div>
 						</div>
 						<div className="col-lg-6">
@@ -49,9 +55,6 @@ const App = () => {
 	) 
 }
 
-const H1 = () => {
-	return <h1>Hello dushbag</h1>
-}
 
 export default App
 
