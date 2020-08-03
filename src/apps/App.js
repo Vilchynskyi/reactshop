@@ -11,7 +11,6 @@ import Footer from './Footer/Footer.js'
 import Main from './Main/Main.js'
 
 
-
 const App = () => {
 	return (
 		<div>
