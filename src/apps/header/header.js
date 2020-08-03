@@ -1,7 +1,7 @@
 import React from "react"
-import Cart from "./cart/cart"
-import Menu from "./menu/menu"
-import Logo from "./logo/logo"
+import Cart from "./Cart/Cart.js"
+import Menu from "./Menu/Menu.js"
+import Logo from "./Logo/Logo.js"
 
 
 const Header = () => {
