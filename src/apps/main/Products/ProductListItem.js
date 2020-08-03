@@ -1,14 +1,14 @@
 import React from "react"
 import "./ProductListItem.css"
 
-const ProductListItem = () => {
+const ProductListItem = (props) => {
     return (
         <div className="product-list-item"> 
-            <div className="product-title">Iphone X</div>
-            <div className="product-desc">This is Iphone X</div>
-            <div className="product-features">Type: smartphone</div>
-            <div className="product-features">Capacity: 256 Gb</div>
-            <div className="product-price">799$</div>
+            <div className="product-title">{props.name}</div>
+            <div className="product-desc">{props.description}</div>
+            <div className="product-features">{props.type}</div>
+            <div className="product-features">{props.capacity}</div>
+            <div className="product-price">{props.price}</div>
             <button className="btn-add-to-cart">Add to cart</button>
         </div>
     )
