@@ -8,14 +8,21 @@ const ProductsList = () => {
         <div>
             <h1 className="page_title">Products list</h1>
             <div className="row">
-                {productsData.map((product) => (
-                    <div className="col-lg-6">
+                {productsData.map(({
+                    id,
+                    name,
+                    description,
+                    type,
+                    capacity,
+                    price,
+                }) => (
+                    <div className="col-lg-6" key={id}>
                         <ProductListItem
-                            name={product.name}
-                            description={product.description}
-                            type={product.type}
-                            capacity={product.capacity}
-                            price={product.price}
+                            name={name}
+                            description={description}
+                            type={type}
+                            capacity={capacity}
+                            price={price}
                         />
                     </div>
                     ))
