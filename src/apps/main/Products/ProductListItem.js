@@ -7,9 +7,13 @@ const ProductListItem = ({
     type,
     capacity,
     price,
+    image,
 }) => {
     return (
-        <div className="product-list-item"> 
+        <div className="product-list-item">
+            <div className="product-image">
+                <img src={image} alt=""/>
+            </div> 
             <div className="product-title">{name}</div>
             <div className="product-desc">{description}</div>
             <div className="product-features">{type}</div>
