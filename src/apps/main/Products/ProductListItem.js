@@ -6,11 +6,11 @@ import "./ProductListItem.css"
 
 const ProductListItem = ({
     name,
-    description,
+    description = "No description",
     type,
     capacity,
     price,
-    image,
+    image = '/images/products/iphone.png',
 }) => {
     return (
         <div className="product-list-item">
@@ -36,8 +36,8 @@ ProductListItem.propTypes = {
     image:PropTypes.string,
 }
 
-ProductListItem.defaultProps = {
-    description: "No description ..."
-}
+// ProductListItem.defaultProps = {
+//     description: "No description ..."
+// }
 
 export default ProductListItem

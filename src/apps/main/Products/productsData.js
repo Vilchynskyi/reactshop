@@ -33,7 +33,7 @@ const productsData = [
         capacity:64,
         price:1000,
         type:'phone',
-        image: '/images/products/iwatch.png',
+        // image: '/images/products/iwatch.png',
     },
 
 
