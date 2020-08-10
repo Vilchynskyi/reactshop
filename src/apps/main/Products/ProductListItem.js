@@ -20,7 +20,7 @@ const ProductListItem = ({
             <div className="product-title">{name}</div>
             <div className="product-desc">{description}</div>
             <div className="product-features">Type: {type}</div>
-            <div className="product-features">Capacity: {capacity}</div>
+            <div className="product-features">Capacity: {capacity}Gb</div>
             <div className="product-price">${price}</div>
             <button className="btn-add-to-cart">Add to cart</button>
         </div>
@@ -28,12 +28,16 @@ const ProductListItem = ({
 }
 
 ProductListItem.propTypes = {
-    name:PropTypes.string,
+    name:PropTypes.string.isRequired,
     description:PropTypes.string,
-    type:PropTypes.string,
-    capacity:PropTypes.number,
-    price:PropTypes.number,
+    type:PropTypes.string.isRequired,
+    capacity:PropTypes.number.isRequired,
+    price:PropTypes.number.isRequired,
     image:PropTypes.string,
+}
+
+ProductListItem.defaultProps = {
+    description: "No description ..."
 }
 
 export default ProductListItem
