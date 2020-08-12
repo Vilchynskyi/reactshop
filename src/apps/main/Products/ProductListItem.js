@@ -6,6 +6,23 @@ import "./ProductListItem.css"
 
 
 class ProductListItem extends Component {
+
+    state = {
+        productCount:1,
+    }
+  
+    onDecrementClick = () => {
+        this.setState((prevState) => ({
+            productCount:prevState.productCount - 1
+        }))
+    }
+
+    onIncrementClick = () => {
+        this.setState((prevState) => ({
+            productCount:prevState.productCount + 1
+        }))
+    }
+
     render() {
         const {
             name,
@@ -14,7 +31,7 @@ class ProductListItem extends Component {
             capacity,
             price,
             image = '/images/products/iphone.png',
-        } = this.props
+        } = this.props;
         return (
             <div className="product-list-item">
                 <div className="product-image">
@@ -25,9 +42,9 @@ class ProductListItem extends Component {
                 <div className="product-features">Type: {type}</div>
                 <div className="product-features">Capacity: {capacity}Gb</div>
                 <div className="product-quantity">
-                    <button>-</button>
-                    <input type="text" defaultValue="1"/>
-                    <button>+</button>
+                    <button onClick={this.onDecrementClick} disabled={this.state.productCount === 1}>-</button>
+                    <input type="text" value={this.state.productCount} readOnly/>
+                    <button onClick={this.onIncrementClick} disabled={this.state.productCount === 10}>+</button>
                 </div>
                 <div className="product-price">${price}</div>
                 <button className="btn-add-to-cart">Add to cart</button>

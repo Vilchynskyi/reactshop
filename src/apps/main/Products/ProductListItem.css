@@ -57,13 +57,17 @@
 .product-quantity button {
     width: 30px;
     height: 30px;
-    border: none;
+    border: 1px solid white;
     color: white;
-    background-color: #ccc;
+    background-color: #3366cc;
     cursor: pointer;
+    outline: none;
 }
 .product-quantity button:hover {
-    background-color: grey;
+    background-color: #6699cc;
+}
+.product-quantity button:disabled {
+    background-color: lightgray;
 }
 .product-quantity input {
     text-align: center;
