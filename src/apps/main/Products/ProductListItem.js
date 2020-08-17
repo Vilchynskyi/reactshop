@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import "./ProductListItem.css"
 
-
 class ProductListItem extends Component {
 
     state = {
@@ -31,7 +30,11 @@ class ProductListItem extends Component {
             capacity,
             price,
             image = '/images/products/iphone.png',
+            addToCart,
         } = this.props;
+        const { 
+            productCount 
+        } = this.state;
         return (
             <div className="product-list-item">
                 <div className="product-image">
@@ -42,12 +45,17 @@ class ProductListItem extends Component {
                 <div className="product-features">Type: {type}</div>
                 <div className="product-features">Capacity: {capacity}Gb</div>
                 <div className="product-quantity">
-                    <button onClick={this.onDecrementClick} disabled={this.state.productCount === 1}>-</button>
-                    <input type="text" value={this.state.productCount} readOnly/>
-                    <button onClick={this.onIncrementClick} disabled={this.state.productCount === 10}>+</button>
+                    <button onClick={this.onDecrementClick} disabled={productCount <= 1}>-</button>
+                    <input type="text" value={productCount} readOnly/>
+                    <button onClick={this.onIncrementClick} disabled={productCount >= 10}>+</button>
                 </div>
                 <div className="product-price">${price}</div>
-                <button className="btn-add-to-cart">Add to cart</button>
+                <button className="btn-add-to-cart" onClick={() => {
+                    const summaryPrice = price * productCount;
+                    addToCart(summaryPrice, productCount);
+                }}>
+                    Add to cart
+                </button>
             </div>
         )
     }
@@ -64,6 +72,7 @@ ProductListItem.propTypes = {
     capacity:PropTypes.number.isRequired,
     price:PropTypes.number.isRequired,
     image:PropTypes.string,
+    addToCart:PropTypes.func.isRequired,
 }
 
 // ProductListItem.defaultProps = {

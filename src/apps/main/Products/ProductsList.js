@@ -1,9 +1,13 @@
 import React from "react"
 
 import ProductListItem from "./ProductListItem"
-import productsData from "./productsData"
+// import productsData from "./productsData"
 
-const ProductsList = () => {
+const ProductsList = (props) => {
+    const { 
+        productsData = [], 
+        addToCart 
+    } = props;
     return (
         <div>
             <h1 className="page_title">Products list</h1>
@@ -16,7 +20,7 @@ const ProductsList = () => {
                     capacity,
                     price,
                     image,
-                }) => (
+                } = {}) => (
                         <div className="col-lg-6" key={id}>
                             <ProductListItem
                                 name={name}
@@ -25,6 +29,7 @@ const ProductsList = () => {
                                 capacity={capacity}
                                 price={price}
                                 image={image}
+                                addToCart={addToCart}
                             />
                         </div>
                         )
