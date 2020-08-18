@@ -24,6 +24,7 @@ class ProductListItem extends Component {
 
     render() {
         const {
+            id,
             name,
             description = "No description",
             type,
@@ -51,19 +52,15 @@ class ProductListItem extends Component {
                 </div>
                 <div className="product-price">${price}</div>
                 <button className="btn-add-to-cart" onClick={() => {
-                    const summaryPrice = price * productCount;
-                    addToCart(summaryPrice, productCount);
+                    addToCart(id, productCount);
                 }}>
-                    Add to cart
+                    Add to cart id:{id}
                 </button>
             </div>
         )
     }
 }
 
-// const ProductListItem = ({
-
-// }) => {}
 
 ProductListItem.propTypes = {
     name:PropTypes.string.isRequired,
@@ -75,8 +72,5 @@ ProductListItem.propTypes = {
     addToCart:PropTypes.func.isRequired,
 }
 
-// ProductListItem.defaultProps = {
-//     description: "No description ..."
-// }
 
 export default ProductListItem

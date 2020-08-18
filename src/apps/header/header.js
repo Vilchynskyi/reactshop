@@ -4,7 +4,10 @@ import Menu from "./Menu/Menu.js"
 import Logo from "./Logo/Logo.js"
 
 
-const Header = ({cartData}) => {
+const Header = (props) => {
+	const {
+		productsInCart
+	} = props
 	return (
 		<header className="header">
 			<div className="container">
@@ -17,8 +20,8 @@ const Header = ({cartData}) => {
 					</div>
 					<div className="col-lg-3">
 						<Cart
-							count={cartData.count}
-							price={cartData.price}
+							productsInCart={productsInCart}
+							// price={productsInCart[2]}
 						/>	
 					</div>
 				</div>

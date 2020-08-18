@@ -1,5 +1,6 @@
 import React, { Component } from "react"
-
+import { keys } from "lodash"
+ 
 class Cart extends Component {
     state = {
         cartProductCount: 0,
@@ -8,13 +9,16 @@ class Cart extends Component {
 
     render()  {
         const {
-            count,
-            price
+            productsInCart
         } = this.props
+
         return (
             <div className="cart text-center">
-                <div className="products-count">{count}</div>
-                <div className="products-price">${price}</div>
+                {
+                    keys(productsInCart).map((productId) => (
+                        <div>{productId}: {productsInCart[productId]}</div>
+                    ))
+                }
             </div>
         )
     }

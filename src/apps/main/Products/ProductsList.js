@@ -1,7 +1,7 @@
 import React from "react"
 
 import ProductListItem from "./ProductListItem"
-// import productsData from "./productsData"
+
 
 const ProductsList = (props) => {
     const { 
@@ -23,6 +23,7 @@ const ProductsList = (props) => {
                 } = {}) => (
                         <div className="col-lg-6" key={id}>
                             <ProductListItem
+                                id={id}
                                 name={name}
                                 description={description}
                                 type={type}
