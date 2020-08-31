@@ -1,31 +1,37 @@
-import React, { Component } from "react"
+import React from "react"
 import { keys } from "lodash"
 import productsData from "../../Main/Products/productsData.js" 
 
 
-class Cart extends Component {
-    state = {
-        cartProductCount: 0,
-        cartTotalPrice: 0,
-    }
+const productsObject = productsData.reduce((accObj, product) => ({
+    ...accObj,
+    [product.id]: product
+}),{})
 
-    render()  {
-        const {
-            productsInCart
-        } = this.props
+console.log(productsObject)
+
+const Cart = ({
+        productsInCart,
+        totalPrice = 0,
+    }) => {
+
+        const fullPrice = totalPrice.reduce((acc, price) => {
+            return acc + price
+        }, 0)
 
         return (
             <div className="cart text-center">
                 {
-                    keys(productsInCart).map((productId) => (
-                        <div>{productsData[productId - 1].name}: {productsInCart[productId]}</div>
+                    keys(productsInCart).map((prodId)=> (
+                        <div>{productsObject[prodId].name} : {productsInCart[prodId]}</div>
                     ))
                 }
+                <div>
+                    Total: ${fullPrice} 
+                </div>
             </div>
         )
-    }
-    
-
 }
+
 
 export default Cart

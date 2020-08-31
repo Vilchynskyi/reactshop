@@ -6,7 +6,8 @@ import Logo from "./Logo/Logo.js"
 
 const Header = (props) => {
 	const {
-		productsInCart
+		productsInCart,
+		totalPrice
 	} = props
 	return (
 		<header className="header">
@@ -21,6 +22,7 @@ const Header = (props) => {
 					<div className="col-lg-3">
 						<Cart
 							productsInCart={productsInCart}
+							totalPrice={totalPrice}
 							// price={productsInCart[2]}
 						/>	
 					</div>

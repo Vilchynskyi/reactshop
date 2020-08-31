@@ -16,12 +16,11 @@ import productsData from "./Main/Products/productsData.js"
 class App extends Component {
 	
 	state = {
-		productsInCart: {
-			// 1:6
-		}
+		productsInCart: {},
+		totalPrice: [],
 	}
 
-	addToCart = (productId, productCount) => {
+	addToCart = (productId, productCount, productPrice) => {
 		this.setState((prevState) => ({
 			// productsInCart: Object.assign(
 			// 	{},
@@ -31,7 +30,11 @@ class App extends Component {
 			productsInCart: {
 				...prevState.productsInCart,
 				[productId]: (prevState.productsInCart[productId] || 0) + productCount
-			}
+			},
+			totalPrice: [
+				...prevState.totalPrice,
+				productCount * productPrice
+			]
 		}))
 	}
 	
@@ -40,6 +43,7 @@ class App extends Component {
 			<div>
 				<Header
 					productsInCart={this.state.productsInCart}
+					totalPrice={this.state.totalPrice}
 				/>
 				<Main
 					productsData={productsData}
