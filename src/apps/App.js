@@ -17,7 +17,6 @@ class App extends Component {
 	
 	state = {
 		productsInCart: {},
-		totalPrice: [],
 	}
 
 	addToCart = (productId, productCount, productPrice) => {
@@ -30,11 +29,7 @@ class App extends Component {
 			productsInCart: {
 				...prevState.productsInCart,
 				[productId]: (prevState.productsInCart[productId] || 0) + productCount
-			},
-			totalPrice: [
-				...prevState.totalPrice,
-				productCount * productPrice
-			]
+			}
 		}))
 	}
 	
@@ -43,7 +38,6 @@ class App extends Component {
 			<div>
 				<Header
 					productsInCart={this.state.productsInCart}
-					totalPrice={this.state.totalPrice}
 				/>
 				<Main
 					productsData={productsData}
@@ -54,6 +48,5 @@ class App extends Component {
 		)
 	}
 }
-
 
 export default App

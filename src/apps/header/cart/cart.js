@@ -12,12 +12,7 @@ console.log(productsObject)
 
 const Cart = ({
         productsInCart,
-        totalPrice = 0,
     }) => {
-
-        const fullPrice = totalPrice.reduce((acc, price) => {
-            return acc + price
-        }, 0)
 
         return (
             <div className="cart text-center">
@@ -27,11 +22,14 @@ const Cart = ({
                     ))
                 }
                 <div>
-                    Total: ${fullPrice} 
+                    Total: ${
+                        keys(productsInCart).reduce((total, productId) => (
+                            total + (productsObject[productId].price * productsInCart[productId])
+                        ), 0)
+                    } 
                 </div>
             </div>
         )
 }
-
 
 export default Cart
