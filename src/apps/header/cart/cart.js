@@ -1,5 +1,6 @@
 import React from "react"
 import { keys } from "lodash"
+import { Link } from "react-router-dom"
 import productsData from "../../Main/Products/productsData.js" 
 
 
@@ -13,7 +14,6 @@ console.log(productsObject)
 const Cart = ({
         productsInCart,
     }) => {
-
         return (
             <div className="cart text-center">
                 {
@@ -28,6 +28,7 @@ const Cart = ({
                         ), 0)
                     } 
                 </div>
+                <Link to="/cart">Show cart</Link>
             </div>
         )
 }
