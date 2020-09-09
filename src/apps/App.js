@@ -40,6 +40,7 @@ class App extends Component {
 					productsInCart={this.state.productsInCart}
 				/>
 				<Main
+					productsInCart={this.state.productsInCart}
 					productsData={productsData}
 					addToCart={this.addToCart}
 				/>
