@@ -32,6 +32,17 @@ class App extends Component {
 			}
 		}))
 	}
+	deleteFromCart = (productId) => {
+		this.setState((prevState) => {
+			let prevProductsInCart = {...prevState.productsInCart}
+
+			delete prevProductsInCart[productId]
+
+			return {
+				productsInCart: prevProductsInCart
+			}
+		})
+	}
 	
 	render() {
 		return (
@@ -43,6 +54,7 @@ class App extends Component {
 					productsInCart={this.state.productsInCart}
 					productsData={productsData}
 					addToCart={this.addToCart}
+					deleteFromCart={this.deleteFromCart}
 				/>
 				<Footer/>
 			</div>

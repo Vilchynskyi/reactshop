@@ -11,9 +11,11 @@ const Main = (props) => {
 	const { 
 		addToCart, 
 		productsData,
-		productsInCart 
+		productsInCart,
+		deleteFromCart, 
 	} = props;
 	return (
+		
 		<main className="main">
 			<div className="container">
 				<div className="row">
@@ -30,6 +32,7 @@ const Main = (props) => {
 						<Route path="/cart" render={() => (
 							<CartPage
 								productsInCart={productsInCart}
+								deleteFromCart={deleteFromCart}
 							/>
 						)}/>
 						<Route path="/paymentPage" component={paymentPage}/>
