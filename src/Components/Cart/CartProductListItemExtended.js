@@ -29,12 +29,16 @@ const CartProductListItemExtended = ({
                 <p className="cart-extended-sum">
                         Sum for this item: <span className="bold sum-price">$ {(product.price * productCount)} </span> 
                 </p>
-                <button onClick={()=> deleteFromCart(product.id)}>Delete product</button>
+                <button onClick={() => deleteFromCart(product.id)}>Delete product</button>
                 <Quantity
-                    onDecrementClick={() => changeProductQuantity(product.id, productCount-1)}
+                    onDecrementClick={() => (
+                        productCount === 1 ? deleteFromCart(product.id)
+                        : changeProductQuantity(product.id, productCount-1)
+                    )}
                     productCount={productCount}
                     onIncrementClick={() => changeProductQuantity(product.id, productCount+1)}
                     productId={product.id}
+                    deleteProduct={0}
                 />
             </div>
         </div>
