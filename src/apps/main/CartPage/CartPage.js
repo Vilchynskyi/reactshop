@@ -6,7 +6,9 @@ import CartProductListItemExtended from "../../../Components/Cart/CartProductLis
 
 const CartPage = ({
     productsInCart,
-    deleteFromCart
+    deleteFromCart,
+    onDecrementClick,
+    onIncrementClick,
 }) => {
     return (
         <div>
@@ -15,6 +17,8 @@ const CartPage = ({
                 productsInCart={productsInCart}
                 CartItem={CartProductListItemExtended}
                 deleteFromCart={deleteFromCart}
+                onIncrementClick={onIncrementClick}
+                onDecrementClick={onDecrementClick}
             />
             <CartTotal
                 productsInCart={productsInCart}

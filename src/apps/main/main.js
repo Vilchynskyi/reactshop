@@ -12,7 +12,9 @@ const Main = (props) => {
 		addToCart, 
 		productsData,
 		productsInCart,
-		deleteFromCart, 
+		deleteFromCart,
+		onDecrementClick,
+		onIncrementClick,
 	} = props;
 	return (
 		
@@ -33,6 +35,8 @@ const Main = (props) => {
 							<CartPage
 								productsInCart={productsInCart}
 								deleteFromCart={deleteFromCart}
+								onDecrementClick={onDecrementClick}
+								onIncrementClick={onIncrementClick}
 							/>
 						)}/>
 						<Route path="/paymentPage" component={paymentPage}/>

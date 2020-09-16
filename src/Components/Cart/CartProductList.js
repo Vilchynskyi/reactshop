@@ -8,17 +8,21 @@ const CartProductList = ({
     productsInCart,
     productsObject = getProductsMap(productsData),
     CartItem = CartProductListItem,
-    deleteFromCart
+    deleteFromCart,
+    onDecrementClick,
+    onIncrementClick,
 }) => {
     return (
         <div>
             {
-                keys(productsInCart).map((prodId)=> (
+                keys(productsInCart).map((prodId) => (
                     <CartItem
                         product={productsObject[prodId]}
                         productCount={productsInCart[prodId]}
                         key={prodId}
                         deleteFromCart={deleteFromCart}
+                        onDecrementClick={onDecrementClick}
+                        onIncrementClick={onIncrementClick}
                     />
                 ))
             }
