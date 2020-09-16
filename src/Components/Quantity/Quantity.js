@@ -8,9 +8,9 @@ const Quantity = ({
 }) => {
     return(
         <div className="product-quantity">
-            <button onClick={() => onDecrementClick(productId)} disabled={productCount <= 1}>-</button>
+            <button onClick={() => onDecrementClick()} disabled={productCount <= 1}>-</button>
             <input type="text" value={productCount} readOnly/>
-            <button onClick={() => onIncrementClick(productId)} disabled={productCount >= 10}>+</button>
+            <button onClick={() => onIncrementClick()} disabled={productCount >= 10}>+</button>
         </div>
     )
 }

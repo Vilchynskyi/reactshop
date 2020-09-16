@@ -8,8 +8,7 @@ const CartProductListItemExtended = ({
     product,
     productCount,
     deleteFromCart,
-    onDecrementClick,
-    onIncrementClick,
+    changeProductQuantity,
 }) => (     
     <div className="cart-product-list-item-description">
         <div className="row">
@@ -32,9 +31,9 @@ const CartProductListItemExtended = ({
                 </p>
                 <button onClick={()=> deleteFromCart(product.id)}>Delete product</button>
                 <Quantity
-                    onDecrementClick={onDecrementClick}
+                    onDecrementClick={() => changeProductQuantity(product.id, productCount-1)}
                     productCount={productCount}
-                    onIncrementClick={onIncrementClick}
+                    onIncrementClick={() => changeProductQuantity(product.id, productCount+1)}
                     productId={product.id}
                 />
             </div>

@@ -32,30 +32,21 @@ class App extends Component {
 			}
 		}))
 	}
-	
+
 	deleteFromCart = (productId) => {
 		this.setState((prevState) => ({
 			productsInCart: omit(prevState.productsInCart, productId)
 		}))
 	}
 	
-	onDecrementClick = (productId) => {
-        this.setState((prevState) => ({
+	changeProductQuantity = (productId, quantity) => {
+		this.setState((prevState) => ({
             productsInCart: {
 				...prevState.productsInCart,
-				[productId]:prevState.productsInCart[productId] - 1
+				[productId]:quantity
 			}
         }))
-    }
-
-    onIncrementClick = (productId) => {
-        this.setState((prevState) => ({
-            productsInCart: {
-				...prevState.productsInCart,
-				[productId]:prevState.productsInCart[productId] + 1
-			}
-        }))
-    }
+	}
 
 	render() {
 		return (
@@ -68,8 +59,7 @@ class App extends Component {
 					productsData={productsData}
 					addToCart={this.addToCart}
 					deleteFromCart={this.deleteFromCart}
-					onDecrementClick={this.onDecrementClick}
-					onIncrementClick={this.onIncrementClick}
+					changeProductQuantity={this.changeProductQuantity}
 				/>
 				<Footer/>
 			</div>
