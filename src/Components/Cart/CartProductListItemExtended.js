@@ -1,6 +1,7 @@
 import React from 'react'
 import './CartProductListItemExtended.css'
 import Quantity from '../Quantity/Quantity'
+import { connect } from 'react-redux'
 
 
 
@@ -9,6 +10,7 @@ const CartProductListItemExtended = ({
     productCount,
     deleteFromCart,
     changeProductQuantity,
+    isLiked=false,
 }) => (     
     <div className="cart-product-list-item-description">
         <div className="row">
@@ -19,6 +21,7 @@ const CartProductListItemExtended = ({
                 <p className="cart-extended-name">
                     <span> {product.name} </span> 
                 </p>
+                <span>{ isLiked ? <span>&#9829;</span> : <span>&#9825;</span>} </span>
                 <p className="cart-extended-price">
                         Price for one item: <span className="bold">$ {product.price} </span> 
                 </p>
@@ -45,5 +48,11 @@ const CartProductListItemExtended = ({
     </div>
 )
 
-export default CartProductListItemExtended
+const mapStateToPrors = (state, props) => ({
+    isLiked:state[props.product.id]
+})
+
+export default connect(
+    mapStateToPrors
+)(CartProductListItemExtended)
 

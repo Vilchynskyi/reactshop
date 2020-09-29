@@ -6,7 +6,10 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux';
 import productLikeReducer from './store/productLikeReducer';
 
-const store = createStore(productLikeReducer)
+const store = createStore(
+  productLikeReducer,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
 
 ReactDOM.render(
   <React.StrictMode>
