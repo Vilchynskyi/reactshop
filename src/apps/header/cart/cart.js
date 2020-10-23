@@ -1,23 +1,30 @@
 import React from "react"
+import { connect } from "react-redux"
 import { Link } from "react-router-dom"
 import CartTotal from '../../../Components/Cart/Cart.js'
 import CartProductList from "../../../Components/Cart/CartProductList.js"
 
 
 const Cart = ({
-        productsInCart,
+        products
     }) => {
         return (
             <div className="cart text-center">
                 <CartProductList
-                    productsInCart={productsInCart}
+                    productsInCart={products}
                 />
                 <CartTotal
-                    productsInCart={productsInCart}
+                    productsInCart={products}
                 />
                 <Link to="/cart">Show cart</Link>
             </div>
         )
 }
 
-export default Cart
+const mapStateToPrors = (state) => ({
+    products:state.productInCartState
+})
+
+export default connect(
+    mapStateToPrors
+)(Cart)

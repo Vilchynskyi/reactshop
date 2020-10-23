@@ -9,11 +9,7 @@ import paymentPage from "./PaymentPage/PaymentPage.js";
 
 const Main = (props) => {
 	const { 
-		addToCart, 
 		productsData,
-		productsInCart,
-		deleteFromCart,
-		changeProductQuantity,
 	} = props;
 	return (
 		
@@ -27,16 +23,9 @@ const Main = (props) => {
 						<Route path="/" exact render={() => (
 							<ProductsList
 								productsData={productsData}
-								addToCart={addToCart}
 							/>
 						)}/>
-						<Route path="/cart" render={() => (
-							<CartPage
-								productsInCart={productsInCart}
-								deleteFromCart={deleteFromCart}
-								changeProductQuantity={changeProductQuantity}
-							/>
-						)}/>
+						<Route path="/cart" component={CartPage}/>
 						<Route path="/paymentPage" component={paymentPage}/>
 						<Route path="/shipping" component={Shipping}/>
 					</div>

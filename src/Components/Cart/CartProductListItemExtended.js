@@ -11,6 +11,7 @@ const CartProductListItemExtended = ({
     deleteFromCart,
     changeProductQuantity,
     isLiked=false,
+    removeProductFromCart
 }) => (     
     <div className="cart-product-list-item-description">
         <div className="row">
@@ -32,10 +33,10 @@ const CartProductListItemExtended = ({
                 <p className="cart-extended-sum">
                         Sum for this item: <span className="bold sum-price">$ {(product.price * productCount)} </span> 
                 </p>
-                <button onClick={() => deleteFromCart(product.id)}>Delete product</button>
+                <button onClick={() => removeProductFromCart(product.id)}>Delete product</button>
                 <Quantity
                     onDecrementClick={() => (
-                        productCount === 1 ? deleteFromCart(product.id)
+                        productCount === 1 ? removeProductFromCart(product.id)
                         : changeProductQuantity(product.id, productCount-1)
                     )}
                     productCount={productCount}
@@ -49,10 +50,23 @@ const CartProductListItemExtended = ({
 )
 
 const mapStateToPrors = (state, props) => ({
-    isLiked:state[props.product.id]
+    isLiked:state.productsLikeState[props.product.id]
+})
+
+const mapDispatchToPrors = (dispatch) => ({
+    removeProductFromCart: (id) => dispatch({
+        type:"REMOVE_PRODUCT_FROM_CART",
+        id
+    }),
+    changeProductQuantity: (id, quantity) => dispatch({
+        type:"CHANGE_PRODUCT_QUANTITY",
+        id,
+        quantity
+    })
 })
 
 export default connect(
-    mapStateToPrors
+    mapStateToPrors,
+    mapDispatchToPrors
 )(CartProductListItemExtended)
 

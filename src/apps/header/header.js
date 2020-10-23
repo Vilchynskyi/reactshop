@@ -4,10 +4,7 @@ import Menu from "./Menu/Menu.js"
 import Logo from "./Logo/Logo.js"
 
 
-const Header = (props) => {
-	const {
-		productsInCart,
-	} = props
+const Header = () => {
 	return (
 		<header className="header">
 			<div className="container">
@@ -19,9 +16,7 @@ const Header = (props) => {
 						<Menu/>
 					</div>
 					<div className="col-lg-3">
-						<Cart
-							productsInCart={productsInCart}
-						/>	
+						<Cart/>	
 					</div>
 				</div>
 			</div>

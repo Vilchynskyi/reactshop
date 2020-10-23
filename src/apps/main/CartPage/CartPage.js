@@ -1,4 +1,5 @@
 import React from "react"
+import { connect } from "react-redux"
 import CartTotal from "../../../Components/Cart/Cart.js"
 import CartProductList from "../../../Components/Cart/CartProductList.js"
 import CartProductListItemExtended from "../../../Components/Cart/CartProductListItemExtended.js"
@@ -6,8 +7,6 @@ import CartProductListItemExtended from "../../../Components/Cart/CartProductLis
 
 const CartPage = ({
     productsInCart,
-    deleteFromCart,
-    changeProductQuantity,
 }) => {
     return (
         <div>
@@ -15,8 +14,6 @@ const CartPage = ({
             <CartProductList
                 productsInCart={productsInCart}
                 CartItem={CartProductListItemExtended}
-                deleteFromCart={deleteFromCart}
-                changeProductQuantity={changeProductQuantity}
             />
             <CartTotal
                 productsInCart={productsInCart}
@@ -25,4 +22,10 @@ const CartPage = ({
     )
 }
 
-export default CartPage
+const mapStateToProps = (state) => ({
+    productsInCart: state.productInCartState
+})
+
+export default connect(
+    mapStateToProps,
+)(CartPage)

@@ -38,6 +38,7 @@ class ProductListItem extends Component {
             isLiked=false,
             addLike,
             removeLike,
+            addProduct
         } = this.props;
         const { 
             productCount 
@@ -61,7 +62,7 @@ class ProductListItem extends Component {
                 />
                 <div className="product-price">${price}</div>
                 <button className="btn-add-to-cart" onClick={() => {
-                    addToCart(id, productCount, price);
+                    addProduct(id, productCount);
                 }}>
                     Add to cart id:{id}
                 </button>
@@ -83,7 +84,7 @@ ProductListItem.propTypes = {
 
 
 const mapStateToPrors = (state, props) => ({
-    isLiked:state[props.id]
+    isLiked:state.productsLikeState[props.id]
 })
 
 const mapDispatchToPrors = (dispatch) => ({
@@ -95,6 +96,12 @@ const mapDispatchToPrors = (dispatch) => ({
         type:"DISLIKE",
         id
     }),
+    addProduct:(id, count) => dispatch({
+        type:"ADD_PRODUCT_TO_CART",
+        id,
+        count
+    }),
+
 })
 
 export default connect(
